@@ -1,0 +1,56 @@
+{
+  "name": "youtube-organic-mcp",
+  "mcpName": "io.github.lanternrow/youtube-organic-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for YouTube organic analytics — channel stats, video performance, watch time, and audience insights via the YouTube Data & Analytics APIs. Built for Claude Code and other MCP-compatible AI tools.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "youtube-organic-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "release": "node release.mjs",
+    "release:registry": "mcp-publisher publish"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "youtube",
+    "youtube-analytics",
+    "organic-analytics",
+    "social-media",
+    "video-insights",
+    "watch-time",
+    "engagement",
+    "claude",
+    "claude-code",
+    "ai-tools"
+  ],
+  "author": "The SEO Engine by Lantern Row <info@lanternrow.com> (https://lanternrow.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lanternrow/youtube-organic-mcp.git"
+  },
+  "homepage": "https://github.com/lanternrow/youtube-organic-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/lanternrow/youtube-organic-mcp/issues"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.18",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.lanternrow/youtube-organic-mcp",
+  "description": "YouTube organic analytics — channel stats, video performance, watch time, retention, and audience insights via the YouTube Data & Analytics APIs.",
+  "repository": {
+    "url": "https://github.com/lanternrow/youtube-organic-mcp",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "youtube-organic-mcp",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "description": "Google OAuth client ID for the YouTube Data + Analytics APIs",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": false,
+          "name": "YOUTUBE_CLIENT_ID"
+        },
+        {
+          "description": "Google OAuth client secret",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true,
+          "name": "YOUTUBE_CLIENT_SECRET"
+        },
+        {
+          "description": "Google OAuth refresh token (offline access) for the channel owner",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true,
+          "name": "YOUTUBE_REFRESH_TOKEN"
+        }
+      ]
+    }
+  ]
+}

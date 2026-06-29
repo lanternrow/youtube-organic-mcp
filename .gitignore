@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.env
+*.tgz
+*.json.token
+.youtube_account.json
