@@ -1,11 +1,12 @@
+import { describe } from "node:test";
 import assert from "node:assert/strict";
-import { describe, test } from "node:test";
 import {
   assertSecretsAbsent,
   blockLiveFetch,
   blockedFetchCount,
   fakeAccount,
   installOfflineGuards,
+  test,
 } from "./support.js";
 
 blockLiveFetch();

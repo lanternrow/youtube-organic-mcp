@@ -8,7 +8,19 @@
  * Fixture strings are fake. Do not point these helpers at real credentials.
  */
 
-import { after, afterEach, beforeEach } from "node:test";
+import { after, afterEach, beforeEach, test as nodeTest } from "node:test";
+
+// `--test-timeout` is not a Node 18 CLI flag. Each test sets the `timeout`
+// option, which has existed since the 18.7.0 test runner.
+export const TEST_TIMEOUT_MS = 10_000;
+
+export function test(name, options, fn) {
+  if (typeof options === "function") {
+    fn = options;
+    options = {};
+  }
+  return nodeTest(name, { ...options, timeout: TEST_TIMEOUT_MS }, fn);
+}
 
 export const TOKEN_URL = "https://oauth2.googleapis.com/token";
 export const DATA_API = "https://www.googleapis.com/youtube/v3";
@@ -62,7 +74,7 @@ export function installOfflineGuards() {
     for (const key of ENV_KEYS) delete process.env[key];
     blockedFetches = 0;
     blockLiveFetch();
-  });
+  }, { timeout: TEST_TIMEOUT_MS });
 
   afterEach(() => {
     for (const key of ENV_KEYS) {
@@ -71,7 +83,7 @@ export function installOfflineGuards() {
       else process.env[key] = value;
     }
     blockLiveFetch();
-  });
+  }, { timeout: TEST_TIMEOUT_MS });
 
   after(() => {
     for (const key of ENV_KEYS) {
@@ -80,7 +92,7 @@ export function installOfflineGuards() {
       }
     }
     globalThis.fetch = nativeFetch;
-  });
+  }, { timeout: TEST_TIMEOUT_MS });
 }
 
 export function fakeAccount(name, overrides = {}) {

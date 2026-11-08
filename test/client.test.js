@@ -1,5 +1,5 @@
+import { describe } from "node:test";
 import assert from "node:assert/strict";
-import { describe, test } from "node:test";
 import {
   ANALYTICS_API,
   DATA_API,
@@ -11,6 +11,7 @@ import {
   installFetch,
   installOfflineGuards,
   jsonResponse,
+  test,
   textResponse,
 } from "./support.js";
 
