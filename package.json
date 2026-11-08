@@ -12,6 +12,8 @@
     "build": "tsc",
     "dev": "tsc --watch",
     "start": "node dist/index.js",
+    "pretest": "npm run build",
+    "test": "node --test --test-concurrency=1 --test-timeout=10000 --test-reporter=spec test/*.test.js",
     "release": "node release.mjs",
     "release:registry": "mcp-publisher publish"
   },
